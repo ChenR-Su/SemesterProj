@@ -47,6 +47,44 @@ class GameObject{
                 child.draw(contex);
         }
     }
+
+    markedDestory(){
+        this.markDestory - true;
+    }
+
+    getGameObject(name){
+        for(let child of this.children){
+            if(child.name == name)
+                return child;
+            let foundChild = child.getGameObject(name);
+            if(foundChild)
+                return foundChild;
+        }
+    }
+
+    getComponent(name){
+        for(let component of this.components)
+        {
+            if(component.constructor.name == name)
+                return component;
+        }
+        for(let child of this.children){
+            let component = child.getComponent(name);
+            if(component)
+                return component;
+        }
+    }
+
+    callMethod(name,args){
+        for(let component of this.components){
+            if(component[name])
+                component[name](args)
+        }
+        for(let child of this.children){
+            child.callMethod(name,args);
+        }
+    }
+
 }
 export default GameObject;
 

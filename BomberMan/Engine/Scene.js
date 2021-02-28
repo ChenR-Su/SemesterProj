@@ -54,6 +54,36 @@ class Scene{
         for(let child of this.children)
             child.update();
     }
+
+    Destoryed(){
+        let newChildren = [];
+        for(let child of this.children){
+            if(!child.markedDestory)
+                newChildren.push(child);
+        }
+        this.children = newChildren;
+    }
+
+    getGameObject(name){
+        for(let child of this.children){
+            if(child.name = name)
+                return child;
+            let foundChild = child.getGameObject;
+            if(foundChild)
+                return foundChild;
+        }
+        console.error("Could Not Find The Particular Child");
+    }
+
+    instantiate(objectDescription){
+        let newObject = Scene.deserializeObject(objectDescription);
+        this.addChild(newObject);
+    }
+
+    callMethod(name,args){
+        for(let child of this.children)
+            child.callMethod(name,args);
+    }
 }
 
 export default Scene;
