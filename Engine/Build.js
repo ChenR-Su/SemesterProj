@@ -1,9 +1,7 @@
 const fs = require('fs')
 
 let toBuild = [
-  { dir: "./Components/", name: "GameComponents.js" },
-  { dir: "./Prefabs/", name: "GamePrefabs.js" },
-  { dir: "./Scenes/", name: "GameScenes.js" },
+  { dir: "./Components/", name: "EngineComponents.js" },
 ]
 
 for (let i = 0; i < toBuild.length; i++) {
