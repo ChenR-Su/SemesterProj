@@ -1,13 +1,18 @@
 import * as Engine from "../../Engine/Engine.js"
 
+
+
 export default class PlaceBomb extends Engine.Component{
     //Determine if bomb can be places depends on numbers of bomb carried
     constructor(gameObject){
         super(gameObject);
+        this.amount = 3;
     }
     update(){
-        if(Engine.Input.getKeyDown("Space")){
+        if(Engine.Input.getKeyDown(" ") && this.amount > 0){
             Engine.SceneManager.currentScene.instantiate({prefabName: "Bombs",x:this.gameObject.transform.position.x,y:this.gameObject.transform.position.y})
+            this.amount--;
+            //Reference to the bomb created in  order to destory it
         }
     }
 }
