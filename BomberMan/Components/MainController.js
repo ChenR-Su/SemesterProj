@@ -8,7 +8,10 @@ export default class MainController extends Engine.Component{
     }
     start(){
         this.player = SceneManager.currentScene.getGameObject("Player");
-        SceneManager.currentScene.instantiate({prefabName:"LeftRightBorderWalls"});
+        SceneManager.currentScene.instantiate({prefabName:"LeftRightBorderWalls",x:40});
+        SceneManager.currentScene.instantiate({prefabName:"LeftRightBorderWalls",x:-40})
+        SceneManager.currentScene.instantiate({prefabName:"TopBottomBorderWalls",y:40})
+        SceneManager.currentScene.instantiate({prefabName:"TopBottomBorderWalls",y:-40})
     }
     update(){
 

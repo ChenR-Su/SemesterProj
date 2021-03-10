@@ -15,10 +15,10 @@ export default class Scene {
 
         if (!gameObjectDefinition) throw "Could not find a prefab or game object description (deserializeObject) in " + JSON.stringify(objectDefinition, null, 2)
         gameObject = GameObject.deserialize(gameObjectDefinition); 
-        gameObject.transform.x = objectDefinition.x || 0; 
-        gameObject.transform.y = objectDefinition.y || 0; 
-        gameObject.transform.scaleX = objectDefinition.sx || 1;
-        gameObject.transform.scaleY = objectDefinition.sy || 1; 
+        gameObject.transform.position.x = objectDefinition.x || 0;
+        gameObject.transform.position.y = objectDefinition.y || 0; 
+        gameObject.transform.scale.x = objectDefinition.sx || 1; 
+        gameObject.transform.scale.y = objectDefinition.sy || 1; 
         gameObject.transform.rotation = objectDefinition.r || 0; 
         return gameObject
     }
@@ -47,7 +47,7 @@ export default class Scene {
     draw(ctx) {
         ctx.save();
         ctx.translate(ctx.canvas.width/2, ctx.canvas.height/2)
-        ctx.scale(this.camera.transform.scaleX, this.camera.transform.scaleY)
+        ctx.scale(this.camera.transform.scale.x, this.camera.transform.scale.y)
         for (let i = 0; i < this.children.length; i++) {
             let child = this.children[i];
             if (child.name == "ScreenCamera") continue;

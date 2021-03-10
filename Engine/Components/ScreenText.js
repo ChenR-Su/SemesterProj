@@ -27,8 +27,8 @@ export default  class ScreenText extends Engine.Component{
             justification = ctx.measureText(this.string).fontBoundingBoxAscent;
 
         ctx.fillText(this.string, 
-            this.gameObject.transform.x + alignment, 
-            this.gameObject.transform.y + justification);
+            this.gameObject.transform.position.x + alignment, 
+            this.gameObject.transform.position.y + justification);
         
     }
 }

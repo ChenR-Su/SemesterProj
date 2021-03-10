@@ -31,7 +31,7 @@ export default{
                                     args:["BomberMan",{color:"white"}]
                                 }
                             ]
-                        },x:900,y:350
+                        },x:600,y:350
                     },
                     {
                         gameObject:{
@@ -42,7 +42,7 @@ export default{
                                     args:["Click AnyWhere to Start",{color:"white"}]
                                 }
                             ]
-                        },x:800,y:500
+                        },x:500,y:500
                     }
                 ]
             }

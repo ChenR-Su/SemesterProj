@@ -39,6 +39,11 @@ export default class GameObject{
 
 
     draw(ctx) {
+        //ctx.save()
+        //ctx.translate(this.transform.position.x,this.transform.position.y);
+        //ctx.scale(this.transform.scale.x,this.transform.scale.y);
+        // ctx.rotate(this.transform.rotation);
+        
         for (let component of this.components) {
             if (component.draw) 
                 component.draw(ctx);
@@ -46,6 +51,7 @@ export default class GameObject{
         for(let child of this.transform.children){
             child.draw(ctx);
         }
+        //ctx.restore()
     }
 
     destroy(){

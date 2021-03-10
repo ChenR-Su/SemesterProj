@@ -5,14 +5,14 @@ export default{
             gameObject:{
                 name:"MainCamera",
                 components:[{name:"WorldCamera"}]
-            },sx:10,sy:10
+            },sx:8,sy:8
         },
         {
             gameObject:{
                 name:"ScreenCamera",
                 components:[{name: "ScreenCamera"}],
                 children:[]
-            }
+            },
         },
         {
             gameObject:{
@@ -21,13 +21,10 @@ export default{
                     {name: "Square", args:[82]},
                     {name: "Draw",args:["silver"]}
                 ]
-            },x:0,y:0
+            }
         },
         /*
-        {prefabName:"LeftRightBorderWalls",x:-40},
-        {prefabName:"LeftRightBorderWalls",x:40},
-        {prefabName:"TopBottomBorderWalls",y:40},
-        {prefabName:"TopBottomBorderWalls",y:-40},
+       
 
         //Middle Vertical Line
         {prefabName:"InnerWall"},
