@@ -3,10 +3,10 @@
 export default{
     name: "Player",
     components: [
-        {name : "Draw",args:["gray"]},
-        {name: "Triangle", args:["15"]},
+        {name : "Draw",args:["green"]},
+        {name: "Square", args:[4]},
         {name: "Destoryable"},
-        {name: "Move"},
+        {name: "MovePlayer"},
         {name: "PlaceBomb"}
     ]
 }

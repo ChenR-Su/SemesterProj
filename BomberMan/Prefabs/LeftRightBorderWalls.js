@@ -1,9 +1,9 @@
 //Undestoryable wall
 
 export default{
-    name: "Wall",
+    name: "LeftRightBorderWalls",
     components:[
         {name: "Draw", args:["brown"]},
-        {name: "Square",args:[15]},
+        {name: "Rectangle",args:[2,82]},
     ]
 }

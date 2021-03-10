@@ -4,6 +4,6 @@ export default{
     components:[
         {name: "Draw", args:["white"]},
         {name: "Destoryable"},
-        {name: "Square", args:[15]}
+        {name: "Square", args:[5]}
     ]
 }

@@ -1,6 +1,6 @@
 import * as Engine from "../../Engine/Engine.js"
 
-export default  class SceneChangerComponent extends Engine.Component {
+export default  class ChangeScene extends Engine.Component {
   constructor(gameObject) {
     super(gameObject);
   }

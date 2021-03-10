@@ -31,7 +31,7 @@ export default{
                                     args:["BomberMan",{color:"white"}]
                                 }
                             ]
-                        },x:100,y:40
+                        },x:900,y:350
                     },
                     {
                         gameObject:{
@@ -39,10 +39,10 @@ export default{
                             components:[
                                 {
                                     name:"ScreenText",
-                                    args:["BomberMan",{color:"white"}]
+                                    args:["Click AnyWhere to Start",{color:"white"}]
                                 }
                             ]
-                        },x:100,y:80
+                        },x:800,y:500
                     }
                 ]
             }

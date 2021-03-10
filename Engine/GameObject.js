@@ -1,6 +1,6 @@
 import Scene from "./Scene.js"
 import SceneManager from "./SceneManager.js"
-import * as Engine from "./Component/EngineComponents.js"
+import * as Engine from "./Components/EngineComponents.js"
 
 export default class GameObject{
     static deserialize(gameObjectDefinition) {
@@ -24,7 +24,7 @@ export default class GameObject{
     constructor(){
         this.components = [];
         this.markedDestory = false;
-        this.components.push(new Engine.TransformComponent());
+        this.components.push(new Engine.Transform());
     }
 
     update() {

@@ -1,5 +1,5 @@
 import Component from "../Component.js"
-export default class DrawGeometryComponent extends Component {
+export default class Draw extends Component {
     constructor(gameObject, color) {
         super(gameObject);
         this.color = color;
@@ -22,12 +22,12 @@ export default class DrawGeometryComponent extends Component {
             ctx.fillRect(this.gameObject.transform.x - Square.dimension / 2, this.gameObject.transform.y - Square.dimension / 2, Square.dimension, Square.dimension);
         }
         if (Triangle) {
-            contex.beginPath();
-            contex.moveTo(this.gameObject.transform.dimension, this.gameObject.transform.dimension);
-            contex.lineTo(this.gameObject.transform.dimension, this.gameObject.transform.dimension - 10);
-            contex.lineTo(this.gameObject.transform.dimension + 20, this.gameObject.transform.dimension + 10);
-            contex.closePath();
-            contex.fill();
+            ctx.beginPath();
+            ctx.moveTo(this.gameObject.transform.dimension, this.gameObject.transform.dimension);
+            ctx.lineTo(this.gameObject.transform.dimension, this.gameObject.transform.dimension - 10);
+            ctx.lineTo(this.gameObject.transform.dimension + 20, this.gameObject.transform.dimension + 10);
+            ctx.closePath();
+            ctx.fill();
         }
 
     }

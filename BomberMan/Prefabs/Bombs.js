@@ -1,9 +1,9 @@
 //Bombs
 export default{
-    name:"Bomb",
+    name:"Bombs",
     components:[
         {name: "Draw",args:["red"]},
-        {name: "Circle", args:[15]},
+        {name: "Circle", args:[3]},
         {name: "Destoryable"},
         {name: "Explode"}
     ]
