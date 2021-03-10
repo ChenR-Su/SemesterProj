@@ -23,6 +23,7 @@ export default{
                 ]
             },x:0,y:0
         },
+        /*
         {prefabName:"LeftRightBorderWalls",x:-40},
         {prefabName:"LeftRightBorderWalls",x:40},
         {prefabName:"TopBottomBorderWalls",y:40},
@@ -118,6 +119,11 @@ export default{
         //Lower Right
         {prefabName:"Block",x:30,y:30},
         {prefabName:"Block",x:36,y:36},
+        */
+        //Player
+        {prefabName:"MainController"},
+        {prefabName:"Player"},
+        //{prefabName:"LeftRightBorderWalls"}
         
     ]
 }

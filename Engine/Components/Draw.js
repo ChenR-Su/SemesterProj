@@ -11,15 +11,15 @@ export default class Draw extends Component {
         let Circle = this.gameObject.getComponent("Circle");
         let Square = this.gameObject.getComponent("Square");
         if (Rectangle) {
-            ctx.fillRect(this.gameObject.transform.x - Rectangle.width / 2, this.gameObject.transform.y - Rectangle.height / 2, Rectangle.width, Rectangle.height);
+            ctx.fillRect(this.gameObject.transform.position.x - Rectangle.width / 2, this.gameObject.transform.position.y - Rectangle.height / 2, Rectangle.width, Rectangle.height);
         }
         if (Circle) {
             ctx.beginPath();
-            ctx.arc(this.gameObject.transform.x, this.gameObject.transform.y, Circle.radius, 0, Math.PI * 2);
+            ctx.arc(this.gameObject.transform.position.x, this.gameObject.transform.position.y, Circle.radius, 0, Math.PI * 2);
             ctx.fill();
         }
         if (Square) {
-            ctx.fillRect(this.gameObject.transform.x - Square.dimension / 2, this.gameObject.transform.y - Square.dimension / 2, Square.dimension, Square.dimension);
+            ctx.fillRect(this.gameObject.transform.position.x - Square.dimension / 2, this.gameObject.transform.position.y - Square.dimension / 2, Square.dimension, Square.dimension);
         }
         if (Triangle) {
             ctx.beginPath();

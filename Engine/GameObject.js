@@ -29,7 +29,8 @@ export default class GameObject{
 
     update() {
         for (let component of this.components) {
-            if (component.update) component.update();
+            if (component.update) 
+                component.update();
         }
         for(let child of this.transform.children){
             child.update();
@@ -37,9 +38,10 @@ export default class GameObject{
     }
 
 
-    draw(ctx) {//How does the game object draw itself?
+    draw(ctx) {
         for (let component of this.components) {
-            if (component.draw) component.draw(ctx);
+            if (component.draw) 
+                component.draw(ctx);
         }
         for(let child of this.transform.children){
             child.draw(ctx);
