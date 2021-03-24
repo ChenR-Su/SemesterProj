@@ -21,9 +21,10 @@ export default class ChangeScene extends Engine.Component {
       else if(Engine.Input.getKeyDown("n"))
         Engine.SceneManager.changeScene("EndScene");
     }
-
-    else if(currentSceneName == "SinglePlayerIns")
-      Engine.SceneManager.changeScene("PlayScene")
+    else if(currentSceneName == "SinglePlayerIns"){
+      if (Engine.Input.getKeyDown(1)) 
+        Engine.SceneManager.changeScene("PlayScene");
+    }   
     else if(currentSceneName =="MultiPlayerIns")
       Engine.SceneManager.changeScene("MultiPlayerScene")
     else if(currentSceneName == "PlayScene"){

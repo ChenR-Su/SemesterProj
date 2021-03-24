@@ -17,13 +17,24 @@ export default{
             }
         },
         {
-            gameObject:{
-                name:"Instruction",
-                components:[
-                    {name:"ScreenText",args:["Player Instruction:\nPlayer one -> \nUse Arrow Key to Move your Character, Space bar to place a bomb\nPlayer Two ->\nUse W,S,A,D Key to Move your Character, F key to place a bomb"]},
-                  
-                ]
-            }
+           gameObject:{
+               name:"ScreenCamera",
+               components:[{name:"ScreenCamera"}],
+               children:[
+                   {
+                    gameObject:{
+                        name:"Instruction",
+                        components:[
+                            {
+                                name:"ScreenText",
+                                args:["Player Instruction",{color:"white"}]
+                            },
+                          
+                        ]
+                    },x:120,y:90
+                   }
+               ]
+           }
         }
     ]
 }

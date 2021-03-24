@@ -75,6 +75,7 @@ export default class MainController extends Engine.Component {
     }
 
     update() {
-
+        if(this.player.x > 60)
+            
     }
 }

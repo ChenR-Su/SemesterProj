@@ -8,9 +8,9 @@ export default class MovePlayer extends Engine.Component{
     }
     //Move with Polling
     update() {
-            if (Engine.Input.getKey("ArrowLeft") || Engine.Input.getKey('a')) this.gameObject.transform.position.x -= 1 * this.speed;
-            if (Engine.Input.getKey("ArrowRight") || Engine.Input.getKey('d')) this.gameObject.transform.position.x += 1 * this.speed;
-            if (Engine.Input.getKey("ArrowUp") || Engine.Input.getKey('w')) this.gameObject.transform.position.y -= 1 * this.speed;
-            if (Engine.Input.getKey("ArrowDown") || Engine.Input.getKey('s')) this.gameObject.transform.position.y += 1 * this.speed;
+            if (Engine.Input.getKey("ArrowLeft") ) this.gameObject.transform.position.x -= 1 * this.speed;
+            if (Engine.Input.getKey("ArrowRight")) this.gameObject.transform.position.x += 1 * this.speed;
+            if (Engine.Input.getKey("ArrowUp") ) this.gameObject.transform.position.y -= 1 * this.speed;
+            if (Engine.Input.getKey("ArrowDown") ) this.gameObject.transform.position.y += 1 * this.speed;
       }
 }

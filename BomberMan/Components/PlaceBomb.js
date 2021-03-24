@@ -10,12 +10,12 @@ export default class PlaceBomb extends Engine.Component{
         this.amount2 = 3;
     }
     update(){
-        if(Engine.SceneManager.currentScene.getGameObject == "Player" && Engine.Input.getKeyDown(" ") && this.amount1 > 0){
+        if(this.gameObject.name == "Player" && Engine.Input.getKeyDown(" ") && this.amount1 > 0){
             Engine.SceneManager.currentScene.instantiate({prefabName: "Bombs",x:this.gameObject.transform.position.x,y:this.gameObject.transform.position.y})
             this.amount1--;
             //Reference to the bomb created in  order to destory it
         }
-        else if(Engine.SceneManager.currentScene.getGameObject == "Player2" && Engine.Input.getKeyDown("f") && this.amount2 > 0){
+        else if(this.gameObject.name == "Player2" && Engine.Input.getKeyDown("f") && this.amount2 > 0){
             Engine.SceneManager.currentScene.instantiate({prefabName: "Bombs",x:this.gameObject.transform.position.x,y:this.gameObject.transform.position.y})
             this.amount2--;
             //Reference to the bomb created in  order to destory it

@@ -1,5 +1,5 @@
 export default{
-    name:"PlayScene",
+    name:"MultiPlayerScene",
     children:[
         {
             gameObject:{
