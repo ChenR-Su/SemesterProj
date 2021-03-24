@@ -1,5 +1,5 @@
 export default{
-    name: "LostScene",
+    name: "EndScene",
     children:[
         {
             gameObject:
@@ -14,20 +14,12 @@ export default{
         {
             gameObject:
             {
-                name:"DefeatText",
+                name:"EndText",
                 components:[
-                    {name:"ScreenText",args:["Defeated"]}
+                    {name:"ScreenText",args:["Thanks for Player, Good Luck in Your Laning Phase in Game of Life"]}
                 ]
             },x:100,y:55
         },
-        {
-            gameObject:
-            {
-                name:"Continue",
-                components:[
-                    {name:"ScreenText",args:["Continue? Y/N"]}
-                ]
-            },x:100,y:80
-        }
+        
     ]
 }

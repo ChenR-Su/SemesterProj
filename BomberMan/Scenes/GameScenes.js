@@ -1,4 +1,8 @@
 export {default as DefeatScene} from "./DefeatScene.js"
+export {default as EndScene} from "./EndScene.js"
 export {default as InitialScene} from "./InitialScene.js"
+export {default as MultiPlayerIns} from "./MultiPlayerIns.js"
+export {default as MultiPlayerScene} from "./MultiPlayerScene.js"
 export {default as PlayScene} from "./PlayScene.js"
+export {default as SinglePlayerIns} from "./SinglePlayerIns.js"
 export {default as VictoryScene} from "./VictoryScene.js"

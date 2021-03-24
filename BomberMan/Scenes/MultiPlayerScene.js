@@ -28,6 +28,7 @@ export default{
         //Player
         {prefabName:"MainController"},
         {prefabName:"Player"},
+        {prefabName:"Player2"}
         //{prefabName:"LeftRightBorderWalls"}
         
     ]

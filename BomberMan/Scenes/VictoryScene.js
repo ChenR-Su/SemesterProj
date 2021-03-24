@@ -25,7 +25,7 @@ export default{
             {
                 name:"Continue",
                 components:[
-                    {name:"ScreenText",args:["Click AnyWhere to Return to Title Screen"]}
+                    {name:"ScreenText",args:["Continue? Y/N"]}
                 ]
             },x:100,y:80
         }
