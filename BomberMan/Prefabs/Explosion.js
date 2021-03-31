@@ -4,7 +4,7 @@ export default{
     components:[
         {name:"Draw",args:["red"]},
         {name:"Destoryable"},
-        {name:"Rectangle",args:[1,8]},
-        {name:"Rectangle",args:[8,1]}   
+        {name:"Cross",args:[17,4]},
+        //{name:"Rectangle",args:[8,1]}   
     ]
 }

@@ -75,7 +75,18 @@ export default class MainController extends Engine.Component {
     }
 
     update() {
-        if(this.player.x > 60)
-            
+       if(this.player){
+            let playerX = this.player.transform.position.x;
+            let playerY = this.player.transform.position.y;
+            if(playerX >= 36)
+                this.player.transform.position.x = 36;
+            if(playerX <= -36)
+                this.player.transform.position.x = -36;
+            if(playerY >= 36)
+                this.player.transform.position.y = 36;
+            if(playerY <= -36)
+                this.player.transform.position.y = -36;
+
+       }
     }
 }

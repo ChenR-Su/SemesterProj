@@ -10,6 +10,7 @@ export default class Draw extends Component {
         let Triangle = this.gameObject.getComponent("Triangle");
         let Circle = this.gameObject.getComponent("Circle");
         let Square = this.gameObject.getComponent("Square");
+        let Cross = this.gameObject.getComponent("Cross");
         if (Rectangle) {
             ctx.fillRect(this.gameObject.transform.position.x - Rectangle.width / 2, this.gameObject.transform.position.y - Rectangle.height / 2, Rectangle.width, Rectangle.height);
         }
@@ -28,6 +29,10 @@ export default class Draw extends Component {
             ctx.lineTo(this.gameObject.transform.dimension + 20, this.gameObject.transform.dimension + 10);
             ctx.closePath();
             ctx.fill();
+        }
+        if(Cross){
+            ctx.fillRect(this.gameObject.transform.position.x - Cross.width / 2, this.gameObject.transform.position.y - Cross.height / 2, Cross.width, Cross.height);
+            ctx.fillRect(this.gameObject.transform.position.x - Cross.height / 2, this.gameObject.transform.position.y - Cross.width / 2, Cross.height, Cross.width);
         }
 
     }

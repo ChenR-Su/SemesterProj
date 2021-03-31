@@ -41,7 +41,7 @@ export default class ChangeScene extends Engine.Component {
       let EnemyRemaining = Engine.SceneManager.currentScene.getGameObject("Enemy")
       if(!Player2Remaining && !PlayerRemaining && EnemyRemaining)
         Engine.SceneManager.changeScene("DefeatScene")
-      else if((Player2Remaining || Player2Remaining) &&  !EnemyRemaining)
+      else if((PlayerRemaining || Player2Remaining) &&  !EnemyRemaining)
         Engine.SceneManager.changeScene("VictoryScene")
     }
     

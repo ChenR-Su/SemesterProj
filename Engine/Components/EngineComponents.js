@@ -1,4 +1,5 @@
 export {default as Circle} from "./Circle.js"
+export {default as Cross} from "./Cross.js"
 export {default as Draw} from "./Draw.js"
 export {default as Rectangle} from "./Rectangle.js"
 export {default as ScreenCamera} from "./ScreenCamera.js"
