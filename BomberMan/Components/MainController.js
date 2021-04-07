@@ -1,5 +1,4 @@
 import * as Engine from "../../Engine/Engine.js"
-import InnerWall from "../Prefabs/InnerWall.js";
 
 const SceneManager = Engine.SceneManager;
 let wallName = "InnerWall";
@@ -10,6 +9,7 @@ export default class MainController extends Engine.Component {
         super(gameObject);
         this.totalBlock = [];
         this.totalWall = [];
+        this.totalBomb = [];
     }
     start() {
         this.player = SceneManager.currentScene.getGameObject("Player");
@@ -95,6 +95,7 @@ export default class MainController extends Engine.Component {
        if(this.player){
             let playerX = this.player.transform.position.x;
             let playerY = this.player.transform.position.y;
+            let inCollision;
             if(playerX >= 36)
                 this.player.transform.position.x = 36;
             if(playerX <= -36)
@@ -102,25 +103,53 @@ export default class MainController extends Engine.Component {
             if(playerY >= 36)
                 this.player.transform.position.y = 36;
             if(playerY <= -36)
-                this.player.transform.position.y = -36;
-            for(let walls of this.totalWall){
-                let inCollision = Engine.EngineGeo.Collision.collisionDect(this.player.getComponent("Square").asGeometry(),walls);
-                if(inCollision){
-                    this.player.transform.position.x = playerX;
-                    this.player.transform.position.y = playerY;
+                this.player.transform.position.y = -36;  
+              
+            if(Engine.Input.getKey("ArrowLeft")){
+                inCollision = this.collDect();
+                if(!inCollision){
+                    this.player.transform.position.x -= 1 * this.player.getComponent("MovePlayer").speed;
+                }
+                
+            }
+            if(Engine.Input.getKey("ArrowRight")){
+                inCollision = this.collDect();
+                if(!inCollision){
+                    playerX = this.player.transform.position.x;
+                    this.player.transform.position.x += 1 * this.player.getComponent("MovePlayer").speed;
+                }
+                else{
+                     this.player.transform.position.x = playerX;
                 }
             }
-            for(let blocks of this.totalBlock){
-                let inCollision = Engine.EngineGeo.Collision.collisionDect(this.player.getComponent("Square").asGeometry(),blocks);
-                if(inCollision){
-                    if(this.player.transform.position.x + 4 == blocks.x){
-                        
-                    }
- 
-                    
+            if(Engine.Input.getKey("ArrowUp")){
+                inCollision = this.collDect();
+                if(!inCollision){
+                    this.player.transform.position.y -= 1 * this.player.getComponent("MovePlayer").speed;
+                }
+            }
+            if(Engine.Input.getKey("ArrowDown")){
+                inCollision = this.collDect();
+                if(!inCollision){
+                    this.player.transform.position.y += 1 * this.player.getComponent("MovePlayer").speed;
                 }
             }
 
        }
+    }
+
+    collDect(){
+        let store;
+        for(let walls of this.totalWall){
+            store = Engine.EngineGeo.Collision.collisionDect(this.player.getComponent("Square").asGeometry(),walls);
+            if(store)
+                return store
+        }
+        for(let block of this.totalBlock){
+            store = Engine.EngineGeo.Collision.collisionDect(this.player.getComponent("Square").asGeometry(),block);
+            if(store)
+                return store
+        }
+        return false;
     }
 }

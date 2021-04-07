@@ -7,10 +7,5 @@ export default class MovePlayer extends Engine.Component{
         this.speed = speed/3;
     }
     //Move with Polling
-    update() {
-            if (Engine.Input.getKey("ArrowLeft") ) this.gameObject.transform.position.x -= 1 * this.speed;
-            if (Engine.Input.getKey("ArrowRight")) this.gameObject.transform.position.x += 1 * this.speed;
-            if (Engine.Input.getKey("ArrowUp") ) this.gameObject.transform.position.y -= 1 * this.speed;
-            if (Engine.Input.getKey("ArrowDown") ) this.gameObject.transform.position.y += 1 * this.speed;
-      }
+
 }
