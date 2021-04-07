@@ -1,6 +1,7 @@
 export {default as ChangeScene} from "./ChangeScene.js"
 export {default as Destoryable} from "./Destoryable.js"
 export {default as Explode} from "./Explode.js"
+export {default as ExplosionCountDown} from "./ExplosionCountDown.js"
 export {default as MainController} from "./MainController.js"
 export {default as MoveAI} from "./MoveAI.js"
 export {default as MovePlayer} from "./MovePlayer.js"

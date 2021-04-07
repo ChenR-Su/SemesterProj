@@ -38,6 +38,7 @@ export default class GameObject{
     }
 
 
+
     draw(ctx) {
         //ctx.save()
         //ctx.translate(this.transform.position.x,this.transform.position.y);
@@ -88,5 +89,9 @@ export default class GameObject{
 
     get transform(){
         return this.components[0];
+    }
+
+    get state(){
+        return this.markedDestroy;
     }
 }

@@ -32,7 +32,7 @@ export default class Draw extends Component {
         }
         if(Cross){
             ctx.fillRect(this.gameObject.transform.position.x - Cross.width / 2, this.gameObject.transform.position.y - Cross.height / 2, Cross.width, Cross.height);
-            ctx.fillRect(this.gameObject.transform.position.x - Cross.height / 2, this.gameObject.transform.position.y - Cross.width / 2, Cross.height, Cross.width);
+            ctx.fillRect(this.gameObject.transform.position.x - Cross.width2 / 2, this.gameObject.transform.position.y - Cross.height2 / 2, Cross.width2, Cross.height2);
         }
 
     }

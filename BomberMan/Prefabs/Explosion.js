@@ -5,6 +5,7 @@ export default{
         {name:"Draw",args:["red"]},
         {name:"Destoryable"},
         {name:"Cross",args:[17,4]},
+        {name:"ExplosionCountDown"}
         //{name:"Rectangle",args:[8,1]}   
     ]
 }

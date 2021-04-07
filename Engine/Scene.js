@@ -90,7 +90,6 @@ export default class Scene {
     instantiate(objectDescription) {
         let newObject = Scene.deserializeObject(objectDescription);
         this.addChild(newObject)
-
     }
 
     callMethod(name, args) {
