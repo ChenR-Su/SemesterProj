@@ -1,6 +1,8 @@
 export {default as Blocks} from "./Blocks.js"
 export {default as Bombs} from "./Bombs.js"
 export {default as Enemy} from "./Enemy.js"
+export {default as EnemyBomb} from "./EnemyBomb.js"
+export {default as EnemyExplosion} from "./EnemyExplosion.js"
 export {default as Explosion} from "./Explosion.js"
 export {default as InnerWall} from "./InnerWall.js"
 export {default as LeftRightBorderWalls} from "./LeftRightBorderWalls.js"

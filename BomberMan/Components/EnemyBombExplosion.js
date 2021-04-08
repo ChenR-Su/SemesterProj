@@ -1,6 +1,6 @@
 import * as Engine from "../../Engine/Engine.js"
 
-export default class Explode extends Engine.Component{
+export default class EnemyBombExplosion extends Engine.Component{
     //Create an explosion object?
     constructor(gameObject){
         super(gameObject)
@@ -11,7 +11,7 @@ export default class Explode extends Engine.Component{
         if(this.countDown == 0){
             this.bombDestoryed = true;
             this.gameObject.destroy();
-            Engine.SceneManager.currentScene.instantiate({prefabName: "Explosion",x:this.gameObject.transform.position.x,y:this.gameObject.transform.position.y})
+            Engine.SceneManager.currentScene.instantiate({prefabName: "EnemyExplosion",x:this.gameObject.transform.position.x,y:this.gameObject.transform.position.y})
         }
         else
             this.countDown--;

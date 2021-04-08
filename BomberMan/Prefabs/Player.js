@@ -5,8 +5,7 @@ export default {
     components: [
         {name : "Draw",args:["green"]},
         {name: "Square", args:[4]},
-        {name: "Destoryable"},
-        {name: "MovePlayer", args:[1]},
+        {name: "MovePlayer", args:[0.7]},
         {name: "PlaceBomb"}
     ]
 }

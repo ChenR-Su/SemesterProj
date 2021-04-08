@@ -64,9 +64,10 @@ export default class GameObject{
             if(child.name == name) return child;
             let foundChild = child.getGameObject(name);
             if(foundChild) return foundChild;
-        }
-        
+        }    
     }
+
+
     getComponent(name){
         for(let component of this.components){
             if(component.constructor.name == name)

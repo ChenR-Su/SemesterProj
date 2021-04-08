@@ -87,6 +87,18 @@ export default class Scene {
         }
     }
 
+    getGameObjectArrary(name){
+        let store = [];
+        for(let child of this.children){
+            if(child.name == name)
+                store.push(child);
+            let foundChild = child.getGameObject(name);
+            if(foundChild)
+                store.push(foundChild);
+        }
+        return store;
+    }
+
     instantiate(objectDescription) {
         let newObject = Scene.deserializeObject(objectDescription);
         this.addChild(newObject)

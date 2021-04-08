@@ -27,6 +27,7 @@ export default{
 
         {prefabName:"MainController"},
         {prefabName:"Player",x:-36,y:-30},
+        {prefabName:"Enemy",x:6,y:18}
         
     ]
 }

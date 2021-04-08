@@ -10,6 +10,7 @@ export default class MainController extends Engine.Component {
         this.totalBlock = [];
         this.totalWall = [];
         this.totalBomb = [];
+        this.totalExplosion = [];
     }
     start() {
         this.player = SceneManager.currentScene.getGameObject("Player");
@@ -92,10 +93,10 @@ export default class MainController extends Engine.Component {
     }
 
     update() {
+        console.log(this.totalExplosion);
        if(this.player){
             let playerX = this.player.transform.position.x;
             let playerY = this.player.transform.position.y;
-            let inCollision;
             if(playerX >= 36)
                 this.player.transform.position.x = 36;
             if(playerX <= -36)
@@ -104,38 +105,49 @@ export default class MainController extends Engine.Component {
                 this.player.transform.position.y = 36;
             if(playerY <= -36)
                 this.player.transform.position.y = -36;  
-              
+           
             if(Engine.Input.getKey("ArrowLeft")){
-                inCollision = this.collDect();
-                if(!inCollision){
+                if(!this.collDect()){
+                    this.storePosition();
                     this.player.transform.position.x -= 1 * this.player.getComponent("MovePlayer").speed;
                 }
-                
+                else
+                    this.setPosition();  
             }
             if(Engine.Input.getKey("ArrowRight")){
-                inCollision = this.collDect();
-                if(!inCollision){
-                    playerX = this.player.transform.position.x;
+                if(!this.collDect()){
+                    this.storePosition();
                     this.player.transform.position.x += 1 * this.player.getComponent("MovePlayer").speed;
                 }
-                else{
-                     this.player.transform.position.x = playerX;
-                }
+                else
+                    this.setPosition();
             }
             if(Engine.Input.getKey("ArrowUp")){
-                inCollision = this.collDect();
-                if(!inCollision){
+                if(!this.collDect()){
+                    this.storePosition();
                     this.player.transform.position.y -= 1 * this.player.getComponent("MovePlayer").speed;
                 }
+                else
+                    this.setPosition();
             }
             if(Engine.Input.getKey("ArrowDown")){
-                inCollision = this.collDect();
-                if(!inCollision){
+                if(!this.collDect()){
+                    this.storePosition();
                     this.player.transform.position.y += 1 * this.player.getComponent("MovePlayer").speed;
                 }
+                else
+                    this.setPosition();
             }
 
        }
+    }
+    storePosition(){
+        this.player.getComponent("MovePlayer").nonCollideX = this.player.transform.position.x;
+        this.player.getComponent("MovePlayer").nonCollideY = this.player.transform.position.y;
+    }
+    setPosition(){
+        this.player.transform.position.x = this.player.getComponent("MovePlayer").nonCollideX;
+        this.player.transform.position.y = this.player.getComponent("MovePlayer").nonCollideY;
     }
 
     collDect(){
@@ -150,6 +162,14 @@ export default class MainController extends Engine.Component {
             if(store)
                 return store
         }
+        /*for(let explosion of this.totalExplosion){
+            console.log(explosion.getComponent("Cross").asGeometry());
+            store = Engine.EngineGeo.Collision.collisionDect(this.player.getComponent("Square").asGeometry(),explosion.getComponent("Cross").asGeometry());
+            if(store){
+                this.player.destory();
+            }
+                
+        }*/
         return false;
     }
 }

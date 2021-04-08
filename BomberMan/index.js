@@ -33,7 +33,7 @@ function boot(mainSceneName) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
 
-  setInterval(gameLoop, 1000 / 60)
+  setInterval(gameLoop, 1000 / 122)
 }
 
 export default boot;

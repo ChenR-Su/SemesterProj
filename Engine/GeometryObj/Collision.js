@@ -1,13 +1,12 @@
 import CircleGeo from "./CircleGeo.js"
 import SquareGeo from "./SquareGeo.js"
 import CrossGeo from "./CrossGeo.js"
-import RectangleGeo from "./RectangleGeo.js"
 import Point from "./Vector.js"
 
 export default class{
     static collisionDect(one,two){
         if(one instanceof Point){
-            if(two instanceof RectangleGeo){
+            if(two instanceof SquareGeo){
                 return one.x >= two.x && one.y >= two.y && one.x <= two.x + two.width && one.y <= two.y + two.height;
             }
             if(two instanceof CircleGeo){
@@ -18,21 +17,22 @@ export default class{
             }
         }
         if(one instanceof CircleGeo){
-            if(two instanceof SquareGeo || two instanceof RectangleGeo || two instanceof CrossGeo){
+            if(two instanceof SquareGeo  || two instanceof CrossGeo){
                 let objects = [];
                 objects.push(new CircleGeo(two.x, two.y, one.radius))
                 objects.push(new CircleGeo(two.x + two.width, two.y, one.radius))
                 objects.push(new CircleGeo(two.x+ two.width, two.y + two.height, one.radius))
                 objects.push(new CircleGeo(two.x, two.y + two.height, one.radius))
-                objects.push(new RectangleGeo(two.x - one.radius, two.y, two.width + one.radius * 2, two.height))
-                objects.push(new RectangleGeo(two.x , two.y - one.radius, two.width , two.height+ one.radius * 2)) 
+                objects.push(new SquareGeo(two.x - one.radius, two.y, two.width + one.radius * 2, two.height))
+                objects.push(new SquareGeo(two.x , two.y - one.radius, two.width , two.height+ one.radius * 2)) 
                 if(two instanceof CrossGeo){
-                    objects.push(new RectangleGeo(two.x - one.radius, two.y, two.width2 + one.radius * 2, two.height2))
-                    objects.push(new RectangleGeo(two.x , two.y - one.radius, two.width2 , two.height2+ one.radius * 2)) 
+                    objects.push(new SquareGeo(two.x - one.radius, two.y, two.width2 + one.radius * 2, two.height2))
+                    objects.push(new SquareGeo(two.x , two.y - one.radius, two.width2 , two.height2+ one.radius * 2)) 
                         
                 }
                 for(let object of objects){
                     if(this.inCollision(new Point(one.x, one.y), object)){
+                    
                       return true;
                     }
                   }
@@ -43,17 +43,17 @@ export default class{
             if(two instanceof CircleGeo){
                 return this.collisionDect(two,one);
             }
-            if(two instanceof SquareGeo || two instanceof RectangleGeo ||two instanceof CrossGeo){
+            if(two instanceof SquareGeo ||two instanceof CrossGeo){
                 let left = one.x;
                 let right = one.x + one.width;
                 let bottom = one.y;
                 let top = one.y+one.height;
                 if(two instanceof CrossGeo){
                     let rect = [];
-                    rect.push(new RectangleGeo(two.x - two.width / 2,two.y - two.height / 2, two.width, two.height));
-                    rect.push(new RectangleGeo(two.x - two.width2 / 2, two.y - two.height2 / 2, two.width2, two.height2));
+                    rect.push(new SquareGeo(two.x - two.width / 2,two.y - two.height / 2, two.width, two.height));
+                    rect.push(new SquareGeo(two.x - two.width2 / 2, two.y - two.height2 / 2, two.width2, two.height2));
                     for(let obj of rect){
-                        if(this.collisionDect(new Point(one.x, one.y), obj)){
+                        if(this.collisionDect(one, obj)){
                             return true;
                         }
                     }

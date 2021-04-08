@@ -4,7 +4,6 @@ export default{
     components:[
         {name: "Draw",args:["red"]},
         {name: "Circle", args:[2]},
-        {name: "Destoryable"},
         {name: "Explode"}
     ]
 }
