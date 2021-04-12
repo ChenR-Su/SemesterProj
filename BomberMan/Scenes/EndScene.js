@@ -6,20 +6,35 @@ export default{
             {
                 name: "SceneController",
                 components:[
-                    {name:"ChangeScreen"},
+                    {name:"ChangeScene"},
                     {name: "SceneCountDown"}
                 ]
             }
         },
         {
-            gameObject:
-            {
-                name:"EndText",
-                components:[
-                    {name:"ScreenText",args:["Thanks for Player, Good Luck in Your Laning Phase in Game of Life"]}
-                ]
-            },x:100,y:55
+            gameObject:{
+                name:"MainCamera",
+                components:[{name:"WorldCamera"}]
+            }
         },
-        
+        {
+            gameObject:{
+                name:"ScreenCamera",
+                components:[{name:"ScreenCamera"}],
+                children:[
+                    {
+                        gameObject: {
+                            name:"Title",
+                            components:[
+                                {
+                                    name:"ScreenText",
+                                    args:["Thanks for Playing",{color:"white"}]
+                                }
+                            ]
+                        },x:800,y:350
+                    }     
+                ]
+            }
+        } 
     ]
 }

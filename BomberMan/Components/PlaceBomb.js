@@ -7,6 +7,7 @@ export default class PlaceBomb extends Engine.Component{
     constructor(gameObject){
         super(gameObject);
         this.amount = 2;
+        this.amount2 = 2;
         this.bombs=[];
 
     }
@@ -17,6 +18,14 @@ export default class PlaceBomb extends Engine.Component{
 
             this.bombs.push(bomb);
             this.amount--;
+            //Reference to the bomb created in  order to destory it
+        }
+        if((this.gameObject.name == "Player2" && Engine.Input.getKeyDown("f")) && this.amount > 0){
+           
+            let bomb = Engine.SceneManager.currentScene.instantiate({prefabName: "Bombs",x:this.gameObject.transform.position.x,y:this.gameObject.transform.position.y})
+
+            this.bombs.push(bomb);
+            this.amount2--;
             //Reference to the bomb created in  order to destory it
         }
        

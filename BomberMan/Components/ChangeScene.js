@@ -4,7 +4,6 @@ export default class ChangeScene extends Engine.Component {
   constructor(gameObject) {
     super(gameObject);
   }
-  //Check Existence?
   next() {
     let currentSceneName = Engine.SceneManager.currentScene.name;
     if (currentSceneName == "InitialScene") {
@@ -22,27 +21,36 @@ export default class ChangeScene extends Engine.Component {
         Engine.SceneManager.changeScene("EndScene");
     }
     else if(currentSceneName == "SinglePlayerIns"){
-      if (Engine.Input.getKeyDown(1)) 
+      if (Engine.Input.getMouseButton(0)) 
         Engine.SceneManager.changeScene("PlayScene");
     }   
-    else if(currentSceneName =="MultiPlayerIns")
-      Engine.SceneManager.changeScene("MultiPlayerScene")
+    else if(currentSceneName =="MultiPlayerIns"){
+      if (Engine.Input.getMouseButton(0)) 
+        Engine.SceneManager.changeScene("MultiPlayerScene");
+    }
     else if(currentSceneName == "PlayScene"){
       let PlayerRemaining = Engine.SceneManager.currentScene.getGameObject("Player")
       let EnemyRemaining = Engine.SceneManager.currentScene.getGameObject("Enemy")
-      if(EnemyRemaining && !PlayerRemaining)
+      if(EnemyRemaining && !PlayerRemaining){
+
         Engine.SceneManager.changeScene("DefeatScene")
-      else if(!EnemyRemaining && PlayerRemaining)
+      } 
+      else if(!EnemyRemaining && PlayerRemaining){
         Engine.SceneManager.changeScene("VictoryScene")
+      }
+       
     }
     else if(currentSceneName == "MultiPlayerScene"){
       let PlayerRemaining = Engine.SceneManager.currentScene.getGameObject("Player")
-      let Player2Remaining = Engine.SceneManager.currentScene.getGameObject("Player")
+      let Player2Remaining = Engine.SceneManager.currentScene.getGameObject("Player2")
       let EnemyRemaining = Engine.SceneManager.currentScene.getGameObject("Enemy")
-      if(!Player2Remaining && !PlayerRemaining && EnemyRemaining)
+      if(!Player2Remaining && !PlayerRemaining && EnemyRemaining){ 
         Engine.SceneManager.changeScene("DefeatScene")
-      else if((PlayerRemaining || Player2Remaining) &&  !EnemyRemaining)
+      }
+      else if((PlayerRemaining || Player2Remaining) &&  !EnemyRemaining){
         Engine.SceneManager.changeScene("VictoryScene")
+      }
+
     }
     
   }

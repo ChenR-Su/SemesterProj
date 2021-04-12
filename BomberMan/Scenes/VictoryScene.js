@@ -2,32 +2,53 @@ export default{
     name: "VictoryScene",
     children:[
         {
-            gameObject:
-            {
+            gameObject:{
                 name: "SceneController",
                 components:[
-                    {name:"ChangeScreen"},
+                    {name: "ChangeScene"},
                     {name: "SceneCountDown"}
                 ]
             }
         },
         {
-            gameObject:
-            {
-                name:"DefeatText",
-                components:[
-                    {name:"ScreenText",args:["Victory"]}
-                ]
-            },x:100,y:55
+            gameObject:{
+                name:"MainCamera",
+                components:[{name:"WorldCamera"}]
+            }
         },
+
         {
-            gameObject:
-            {
-                name:"Continue",
-                components:[
-                    {name:"ScreenText",args:["Continue? Y/N"]}
+            gameObject:{
+                name:"ScreenCamera",
+                components:[{name:"ScreenCamera"}],
+                children:[
+                    {
+                        gameObject: {
+                            name:"Title",
+                            components:[
+                                {
+                                    name:"ScreenText",
+                                    args:["Victory",{color:"white"}]
+                                }
+                            ]
+                        },x:900,y:350
+                    },
+                    {
+                        gameObject:{
+                            name:"Continue",
+                            components:[
+                                {
+                                    name:"ScreenText",
+                                    args:["Continue? Y/N",{delay:50,color:"white"}]
+                                }
+                                
+                            ]
+                        },x:850,y:500
+                    }
                 ]
-            },x:100,y:80
+            }
+
         }
+     
     ]
 }

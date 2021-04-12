@@ -11,7 +11,19 @@ export default{
             gameObject:{
                 name:"ScreenCamera",
                 components:[{name: "ScreenCamera"}],
-                children:[]
+                children:[
+                    {
+                        gameObject:{
+                            name:"Score",
+                            components:[
+                                {
+                                    name: "ScreenText",
+                                    args:["CurrentScore : ",{color:"white"}]
+                                }
+                            ]
+                        },x:650,y:130
+                    },
+                ]
             },
         },
         {

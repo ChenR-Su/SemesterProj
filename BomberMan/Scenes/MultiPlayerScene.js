@@ -11,7 +11,19 @@ export default{
             gameObject:{
                 name:"ScreenCamera",
                 components:[{name: "ScreenCamera"}],
-                children:[]
+                children:[
+                    {
+                        gameObject:{
+                            name:"Score",
+                            components:[
+                                {
+                                    name: "ScreenText",
+                                    args:["CurrentScore : ",{color:"white"}]
+                                }
+                            ]
+                        },x:650,y:130
+                    }
+                ]
             },
         },
         {
@@ -23,12 +35,14 @@ export default{
                 ]
             }
         },
+       
       
 
         //Player
         {prefabName:"MainController"},
-        {prefabName:"Player"},
-        {prefabName:"Player2"}
+        {prefabName:"Player",x:-36,y:-30},
+        {prefabName:"Player2",x:36,y:-30},
+        {prefabName:"Enemy",x:6,y:18},
         //{prefabName:"LeftRightBorderWalls"}
         
     ]

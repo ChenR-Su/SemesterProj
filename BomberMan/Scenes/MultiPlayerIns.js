@@ -17,14 +17,59 @@ export default{
             }
         },
         {
-            gameObject:{
-                name:"Instruction",
-                components:[
-                    {name:"ScreenText",args:["Player Instruction:\nPlayer one -> \nUse Arrow Key to Move your Character, Space bar to place a bomb\nPlayer Two ->\nUse W,S,A,D Key to Move your Character, F key to place a bomb"]},
-                    {name:"ScreenText",args:["Bomb will explode after a couple second, use the explosion to destory your enemy, white bricks are breakable, however, red bricks are rock solid, Good Luck\n"]},
-                    {name:"ScreenText",args:["Click anywhere to continue"]}
-                ]
-            }
+           gameObject:{
+               name:"ScreenCamera",
+               components:[{name:"ScreenCamera"}],
+               children:[
+                   {
+                    gameObject:{
+                        name:"Instruction",
+                        components:[
+                            {
+                                name:"ScreenText",
+                                args:["Player Instruction",{color:"white"}]
+                            },
+                          
+                        ]
+                    },x:800,y:150
+                   },
+                   {
+                    gameObject:{
+                        name:"P1Description",
+                        components:[
+                            {
+                                name:"ScreenText",
+                                args:["Player 1:Use Arror Key for Movement, Space bar to place Bomb",{color:"white"}]
+                            },
+                          
+                        ]
+                    },x:350,y:300
+                   },
+                   {
+                    gameObject:{
+                        name:"P2Description",
+                        components:[
+                            {
+                                name:"ScreenText",
+                                args:["Player 2:Use WSAD Key for Movement, F key to place Bomb",{color:"white"}]
+                            },
+                          
+                        ]
+                    },x:350,y:500
+                   },
+                   {
+                    gameObject:{
+                        name:"Continue",
+                        components:[
+                            {
+                                name:"ScreenText",
+                                args:["Click Anywhere to Continue, Good Luck Suriving",{color:"white"}]
+                            },
+                        ]
+                    },x:550,y:750
+                   }
+               ]
+           }
         }
     ]
 }

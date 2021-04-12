@@ -6,12 +6,13 @@ export default class EnemyBombExplosion extends Engine.Component{
         super(gameObject)
         this.countDown = 100;
         this.bombDestoryed = false;
+        this.currBomb;
     }
     update(){
         if(this.countDown == 0){
             this.bombDestoryed = true;
             this.gameObject.destroy();
-            Engine.SceneManager.currentScene.instantiate({prefabName: "EnemyExplosion",x:this.gameObject.transform.position.x,y:this.gameObject.transform.position.y})
+            this.currBomb = Engine.SceneManager.currentScene.instantiate({prefabName: "EnemyExplosion",x:this.gameObject.transform.position.x,y:this.gameObject.transform.position.y})
         }
         else
             this.countDown--;

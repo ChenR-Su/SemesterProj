@@ -46,8 +46,10 @@ export default class GameObject{
         // ctx.rotate(this.transform.rotation);
         
         for (let component of this.components) {
-            if (component.draw) 
+            if (component.draw){
                 component.draw(ctx);
+            } 
+                
         }
         for(let child of this.transform.children){
             child.draw(ctx);

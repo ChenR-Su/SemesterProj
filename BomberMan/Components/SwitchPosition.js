@@ -13,10 +13,13 @@ export default class SwitchPosition extends Engine.Component{
             this.tick--;
         }
         else{
-          this.newPosition();
-          this.gameObject.transform.position.x = this.currX;
-          this.gameObject.transform.position.y = this.currY  
-          this.tick = 500;
+            this.newPosition();
+            this.gameObject.transform.position.x = this.currX;
+            this.gameObject.transform.position.y = this.currY  
+            if(Engine.SceneManager.currentScene.name == "MultiPlayerScene")
+                this.tick = 250
+            else
+                this.tick = 500;
         }
         
     }

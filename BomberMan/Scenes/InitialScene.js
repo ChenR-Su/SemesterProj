@@ -31,7 +31,7 @@ export default{
                                     args:["BomberMan",{color:"white"}]
                                 }
                             ]
-                        },x:900,y:350
+                        },x:850,y:350
                     },
                     {
                         gameObject:{
@@ -39,10 +39,11 @@ export default{
                             components:[
                                 {
                                     name:"ScreenText",
-                                    args:["Click 1 on Number Pad for Single Player, 2 for Multi Player(Only up to 2 Players)",{delay:50,color:"white"}]
+                                    args:["Click 1 on Number Pad for Single Player and 2 for Multi Player",{delay:50,color:"white"}]
                                 }
+                                
                             ]
-                        },x:800,y:500
+                        },x:400,y:500
                     }
                 ]
             }
