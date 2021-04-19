@@ -27,6 +27,14 @@ export default class MainController extends Engine.Component {
  
     }
 
+    getBlockGeo(){
+        return this.totalBlockGeo
+    }
+
+    getWallGeo(){
+        return this.totalWallGeo
+    }
+
     mapGeneration(){
         this.middleCross();
         this.surroundingBracket();
@@ -102,120 +110,12 @@ export default class MainController extends Engine.Component {
         this.enemyBomb = this.enemy.getComponent("ThrowBomb").bombs;
         if(this.player){
             this.playerBomb = this.player.getComponent("PlaceBomb").bombs;
-            let playerX = this.player.transform.position.x;
-            let playerY = this.player.transform.position.y;
             this.explosionCheck();
-            if(playerX >= 36)
-                this.player.transform.position.x = 36;
-            if(playerX <= -36)
-                this.player.transform.position.x = -36;
-            if(playerY >= 36)
-                this.player.transform.position.y = 36;
-            if(playerY <= -36)
-                this.player.transform.position.y = -36;  
-           
-            if(Engine.Input.getKey("ArrowLeft")){
-                if(!this.collDect()){
-                    this.storePosition();
-                    this.player.transform.position.x -= 1 * this.player.getComponent("MovePlayer").speed;
-                }
-                else
-                    this.setPosition();  
-            }
-            if(Engine.Input.getKey("ArrowRight")){
-                if(!this.collDect()){
-                    this.storePosition();
-                    this.player.transform.position.x += 1 * this.player.getComponent("MovePlayer").speed;
-                }
-                else
-                    this.setPosition();
-            }
-            if(Engine.Input.getKey("ArrowUp")){
-                if(!this.collDect()){
-                    this.storePosition();
-                    this.player.transform.position.y -= 1 * this.player.getComponent("MovePlayer").speed;
-                }
-                else
-                    this.setPosition();
-            }
-            if(Engine.Input.getKey("ArrowDown")){
-                if(!this.collDect()){
-                    this.storePosition();
-                    this.player.transform.position.y += 1 * this.player.getComponent("MovePlayer").speed;
-                }
-                else
-                    this.setPosition();
-            }
         }
         if(this.player2){
             this.playerBomb = this.playerBomb.concat(this.player2.getComponent("PlaceBomb").bombs);
-            let player2X = this.player2.transform.position.x;
-            let player2Y = this.player2.transform.position.y;
             this.explosionCheck();
-            if(player2X >= 36)
-                this.player2.transform.position.x = 36;
-            if(player2X <= -36)
-                this.player2.transform.position.x = -36;
-            if(player2Y >= 36)
-                this.player2.transform.position.y = 36;
-            if(player2Y <= -36)
-                this.player2.transform.position.y = -36;  
-           
-            if(Engine.Input.getKey("a")){
-                if(!this.collDectPlayer2()){
-                    this.storePosition();
-                    this.player2.transform.position.x -= 1 * this.player2.getComponent("MovePlayer").speed;
-                }
-                else
-                    this.setPosition();  
-            }
-            if(Engine.Input.getKey("d")){
-                if(!this.collDectPlayer2()){
-                    this.storePosition();
-                    this.player2.transform.position.x += 1 * this.player2.getComponent("MovePlayer").speed;
-                }
-                else
-                    this.setPosition();
-            }
-            if(Engine.Input.getKey("w")){
-                if(!this.collDectPlayer2()){
-                    this.storePosition();
-                    this.player2.transform.position.y -= 1 * this.player2.getComponent("MovePlayer").speed;
-                }
-                else
-                    this.setPosition();
-            }
-            if(Engine.Input.getKey("s")){
-                if(!this.collDectPlayer2()){
-                    this.storePosition();
-                    this.player2.transform.position.y += 1 * this.player2.getComponent("MovePlayer").speed;
-                }
-                else
-                    this.setPosition();
-            }
         }
-    }
-    storePosition(){
-        if(this.player){
-            this.player.getComponent("MovePlayer").nonCollideX = this.player.transform.position.x;
-            this.player.getComponent("MovePlayer").nonCollideY = this.player.transform.position.y;
-        }
-        
-        if(this.player2){
-            this.player2.getComponent("MovePlayer").nonCollideX = this.player2.transform.position.x;
-            this.player2.getComponent("MovePlayer").nonCollideY = this.player2.transform.position.y;
-        }
-    }
-    setPosition(){
-        if(this.player){
-            this.player.transform.position.x = this.player.getComponent("MovePlayer").nonCollideX;
-            this.player.transform.position.y = this.player.getComponent("MovePlayer").nonCollideY;
-        }
-        if(this.player2){
-            this.player2.transform.position.x = this.player2.getComponent("MovePlayer").nonCollideX;
-            this.player2.transform.position.y = this.player2.getComponent("MovePlayer").nonCollideY;
-        }
-        
     }
     explosionCheck(){
         for(let i = 0; i<this.totalBlockGeo.length;i++){
@@ -260,35 +160,5 @@ export default class MainController extends Engine.Component {
             }
         }
     }
-    collDect(){
-        let store;
-
-        for(let walls of this.totalWallGeo){
-            store = Engine.EngineGeo.Collision.collisionDect(this.player.getComponent("Square").asGeometry(),walls);
-            if(store)
-                return store
-        }
-        for(let block of this.totalBlockGeo){
-            store = Engine.EngineGeo.Collision.collisionDect(this.player.getComponent("Square").asGeometry(),block);
-            if(store)
-                return store
-        }
-
-
-        return false;
-    }
-    collDectPlayer2(){
-        let store;
-        for(let walls of this.totalWallGeo){
-            store = Engine.EngineGeo.Collision.collisionDect(this.player2.getComponent("Square").asGeometry(),walls);
-            if(store)
-                return store
-        }
-        for(let block of this.totalBlockGeo){
-            store = Engine.EngineGeo.Collision.collisionDect(this.player2.getComponent("Square").asGeometry(),block);
-            if(store)
-                return store
-        }
-        return false;
-    }
+  
 }

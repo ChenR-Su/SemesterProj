@@ -1,7 +1,7 @@
 import * as Engine from "../../Engine/Engine.js"
 
 
-export default class MovePlayer extends Engine.Component {
+export default class MovePlayer2 extends Engine.Component {
     constructor(gameObject, speed = 1) {
         super(gameObject);
         this.speed = speed / 3;
@@ -26,7 +26,7 @@ export default class MovePlayer extends Engine.Component {
             this.gameObject.transform.position.y = 36;
         if (this.playerY <= -36)
             this.gameObject.transform.position.y = -36;
-        if (Engine.Input.getKey("ArrowLeft")) {
+        if (Engine.Input.getKey("a")) {
             if (!this.collDect()) {
                 this.storePos();
                 this.gameObject.transform.position.x -= 1 * this.speed;
@@ -35,7 +35,7 @@ export default class MovePlayer extends Engine.Component {
                 this.setPos();
             }
         }
-        if (Engine.Input.getKey("ArrowRight")) {
+        if (Engine.Input.getKey("d")) {
             if (!this.collDect()) {
                 this.storePos();
                 this.gameObject.transform.position.x += 1 * this.speed;
@@ -44,7 +44,7 @@ export default class MovePlayer extends Engine.Component {
                 this.setPos();
             }
         }
-        if (Engine.Input.getKey("ArrowUp")) {
+        if (Engine.Input.getKey("w")) {
             if (!this.collDect()) {
                 this.storePos();
                 this.gameObject.transform.position.y -= 1 * this.speed;
@@ -53,7 +53,7 @@ export default class MovePlayer extends Engine.Component {
                 this.setPos();
             }
         }
-        if (Engine.Input.getKey("ArrowDown")) {
+        if (Engine.Input.getKey("s")) {
             if (!this.collDect()) {
                 this.storePos();
                 this.gameObject.transform.position.y += 1 * this.speed;
